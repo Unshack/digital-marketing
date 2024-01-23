@@ -40,3 +40,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 // {
 //   "presets": ["next/babel"]
 // }
+
+# payment-router.ts
+
+    line_items.push({
+        price: 'price_1Obf87GlwqIPDq4606Yb94dm',
+        quantity: 1,
+        adjustable_quantity: {
+          enabled: false,
+        },
+    })
