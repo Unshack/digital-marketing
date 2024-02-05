@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 
-export const useAuth = () => { 
+export const useAuth = () => {
   const router = useRouter()
 
   const signOut = async () => {
