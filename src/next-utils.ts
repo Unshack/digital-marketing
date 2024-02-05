@@ -1,18 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { getServerSideUser } from './lib/payload-utils'
+import next from "next"
 
-export async function middleware(req: NextRequest) {
-  const { nextUrl, cookies } = req
-  const { user } = await getServerSideUser(cookies)
+const PORT = Number(process.env.PORT) || 3000
 
-  if (
-    user &&
-    ['/sign-in', '/sign-up'].includes(nextUrl.pathname)
-  ) {
-    return NextResponse.redirect(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}/`
-    )
-  }
+export const nextApp = next({
+    dev: process.env.NODE_ENV !== "production",
+    port: PORT
+})
 
-  return NextResponse.next()
-}
+export const nextHandler = nextApp.getRequestHandler()
